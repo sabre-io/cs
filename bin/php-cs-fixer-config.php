@@ -31,7 +31,6 @@ return
         ->level(CS\FixerInterface::PSR1_LEVEL)
         ->fixers([
             'align_double_arrow',
-            'align_equals',
             'blankline_after_open_tag',
             'concat_with_spaces',
             'self_accessor',
