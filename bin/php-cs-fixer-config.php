@@ -51,7 +51,6 @@ return
             'php_closing_tag',
             'single_line_after_imports',
             'trailing_spaces',
-            'function_call_space',
 
             'operators_spaces',
 
