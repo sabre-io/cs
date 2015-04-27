@@ -34,5 +34,8 @@
     },
     "config" : {
         "bin-dir" : "bin/"
-    }
+    },
+    "bin" : [
+        "bin/sabre-cs-fixer"
+    ]
 }
