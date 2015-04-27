@@ -1,21 +1,51 @@
-#!/bin/bash
+#!/usr/bin/env php
+<?php
 
-# sabre-cs-fixer
-#
-# @copyright Copyright (C) 2015 fruux GmbH. All rights reserved.
-# @author Dominik Tobschall (http://fruux.com/)
+/*
+ * This file is part of the PHP CS utility.
+ *
+ * (c) Fabien Potencier <fabien@symfony.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ *
+ * This file was altered to work for sabre.io projects.
+ */
 
-#
-# Find script path
-#
-SOURCE="${BASH_SOURCE[0]}"
-DIR="$( dirname "$SOURCE" )"
-while [ -h "$SOURCE" ]
-do
-  SOURCE="$(readlink "$SOURCE")"
-  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
-  DIR="$( cd -P "$( dirname "$SOURCE"  )" && pwd )"
-done
-DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+/**
+ * @author Fabien Potencier <fabien@symfony.com>
+ * @author Evert Pot (http://evertpot.com/)
+ */
 
-$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/php-cs-fixer $* --config-file $DIR/php-cs-fixer-config.php
+if (defined('HHVM_VERSION_ID')) {
+    if (HHVM_VERSION_ID < 30500) {
+        fwrite(STDERR, "HHVM needs to be a minimum version of HHVM 3.5.0\n");
+        exit(1);
+    }
+} elseif (!defined('PHP_VERSION_ID') || PHP_VERSION_ID < 50306) {
+    fwrite(STDERR, "PHP needs to be a minimum version of PHP 5.3.6\n");
+    exit(1);
+}
+
+// installed via composer?
+if (file_exists($a = __DIR__.'/../../../autoload.php')) {
+    require_once $a;
+} else {
+    require_once __DIR__.'/../vendor/autoload.php';
+}
+
+use Symfony\CS\Console\Application;
+use Symfony\Component\Console\Input\ArgvInput;
+
+// Automatically injecting the --config-file argument, but only if the "fix"
+// command was given. It's a bit of a hack, but will work as expected normally.
+$arguments = $_SERVER['argv'];
+if (in_array('fix', $arguments)) {
+    $arguments[] = '--config-file';
+    $arguments[] = __DIR__ . '/php-cs-fixer-config.php';
+}
+
+$input = new ArgvInput($arguments);
+
+$application = new Application($input);
+$application->run();
