@@ -66,7 +66,7 @@ class PublicVisibility extends AbstractFixer {
      */
     function getDescription()
     {
-        return 'Visibility MUST be declared on all properties; public MUST be omitted for methods. abstract and final MUST be declared before the visibility; static MUST be declared after the visibility.';
+        return 'public visibility MUST be omitted for properties and method, unless it\'s a non-static public property. abstract and final MUST be declared before the visibility; static MUST be declared after the visibility.';
     }
 
     /**
