@@ -38,7 +38,7 @@ return
             'unused_use',
 
             'elseif',
-            'eol_ending',
+            'eof_ending',
             'function_call_space',
             'function_declaration',
             'indentation',
