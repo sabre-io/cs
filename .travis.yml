@@ -16,6 +16,6 @@ sudo: false
 
 script:
   - ./bin/phpunit --configuration tests/phpunit.xml.dist
-  - ./bin/sabre-cs-fixer
+  - ./bin/sabre-cs-fixer fix --dry-run --diff lib/
 
 before_script: composer install --dev
