@@ -9,7 +9,7 @@ Installation
 
 Make sure you have [composer][1] installed, and then run:
 
-    composer require sabre/skel
+    composer require sabre/cs
 
 
 Build status
