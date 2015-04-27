@@ -34,4 +34,4 @@ while getopts ":f" opt; do
   esac
 done
 
-$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/php-cs-fixer fix --config-file $DIR/php-cs-fixer-config.php --diff --dry-run .
+$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/php-cs-fixer fix --config-file $DIR/php-cs-fixer-config.php --diff $DRYRUN .
