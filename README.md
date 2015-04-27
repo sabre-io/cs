@@ -3,6 +3,9 @@ sabre/cs
 
 sabre/cs provides coding standards for all sabre packages.
 
+This is a developer-only package, and only really interesting if you are
+maintaining or creating sabre/* packages.
+
 
 Installation
 ------------
