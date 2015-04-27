@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# sabre-cs-fixer
+#
+# @copyright Copyright (C) 2015 fruux GmbH. All rights reserved.
+# @author Dominik Tobschall (http://fruux.com/)
+
+#
+# Find script path
+#
+SOURCE="${BASH_SOURCE[0]}"
+DIR="$( dirname "$SOURCE" )"
+while [ -h "$SOURCE" ]
+do
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+  DIR="$( cd -P "$( dirname "$SOURCE"  )" && pwd )"
+done
+DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
+
+$DIR/php-cs-fixer fix --config-file $DIR/php-cs-fixer-config.php --diff --dry-run .
