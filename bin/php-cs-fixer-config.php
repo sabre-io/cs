@@ -51,12 +51,11 @@ return
             'php_closing_tag',
             'single_line_after_imports',
             'trailing_spaces',
-            'visibility',
             'function_call_space',
 
             'operators_spaces',
 
             // sabre defined
-            'public_visibility',
-            'no_spaces_cast',
+            'sabre_visibility',
+            'sabre_spaces_cast',
         ]);

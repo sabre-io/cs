@@ -20,7 +20,7 @@ class NoSpaceAfterCast extends AbstractFixer {
     }
 
     function getName() {
-        return (string)'no_spaces_cast';
+        return 'sabre_spaces_cast';
     }
 
     function getLevel() {
