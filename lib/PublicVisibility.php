@@ -148,7 +148,7 @@ class PublicVisibility extends AbstractFixer {
             T_STATIC    => 'static',
         ];
 
-        return $this->grabAttribsBeforeToken(
+        $result = $this->grabAttribsBeforeToken(
             $tokens,
             $index,
             $tokenAttribsMap,
@@ -157,6 +157,14 @@ class PublicVisibility extends AbstractFixer {
                 'static'     => null,
             ]
         );
+        if ($result['visibility'] && $result['visibility']->getContent('public')) {
+            // If visibility is public and static is set, we remove visibility.
+            if ($result['static']) {
+                $result['visibility'] = null;
+            }
+        }
+        return $result;
+
     }
 
     /**
