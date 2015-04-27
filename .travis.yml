@@ -11,6 +11,8 @@ matrix:
   allow_failures:
     - php: 7
 
+cache: vendor
+sudo: false
 
 script:
   - ./bin/phpunit --configuration tests/phpunit.xml.dist
