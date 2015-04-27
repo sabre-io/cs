@@ -18,20 +18,4 @@ do
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-#
-# Options
-#
-DRYRUN="--dry-run"
-while getopts ":f" opt; do
-  case $opt in
-    f)
-      DRYRUN=""
-      ;;
-    \?)
-      echo "Invalid option: -$OPTARG" >&2
-      exit 1
-      ;;
-  esac
-done
-
-$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/php-cs-fixer fix --config-file $DIR/php-cs-fixer-config.php --diff $DRYRUN .
+$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/php-cs-fixer $* --config-file $DIR/php-cs-fixer-config.php
