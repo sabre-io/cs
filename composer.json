@@ -9,7 +9,8 @@
     "homepage": "http://sabre.io",
     "license": "BSD-3-Clause",
     "require": {
-        "php": ">=5.4.7"
+        "php": ">=5.4.7",
+        "fabpot/php-cs-fixer" : "~1.7"
     },
     "authors": [
         {
