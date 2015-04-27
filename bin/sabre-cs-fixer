@@ -47,5 +47,5 @@ if (in_array('fix', $arguments)) {
 
 $input = new ArgvInput($arguments);
 
-$application = new Application($input);
-$application->run();
+$application = new Application();
+$application->run($input);
