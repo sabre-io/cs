@@ -7,20 +7,20 @@ use Symfony\CS\FixerInterface;
 use Symfony\CS\Tokenizer\Tokens;
 
 /**
-* Public visibility is omitted.
+ * No spaces after a cast.
  *
  * @copyright Copyright (C) 2015 fruux GmbH. All rights reserved.
  * @author Ivan Enderlin
  * @license http://sabre.io/license/
  */
-class PublicVisibility extends AbstractFixer {
+class NoSpaceAfterCast extends AbstractFixer {
 
     function getDescription() {
-        return 'Public visibility is omitted.';
+        return 'No space between cast and variable.';
     }
 
     function getName() {
-        return 'public_visibility';
+        return (string)'no_spaces_cast';
     }
 
     function getLevel() {
@@ -28,12 +28,14 @@ class PublicVisibility extends AbstractFixer {
     }
 
     function fix(\SplFileInfo $file, $content) {
+
         $tokens = Tokens::fromCode($content);
 
-        foreach ($tokens as $i => $token) {
-            if ($token->isGivenKind(T_PUBLIC)) {
-                $token->clear();
-                $tokens->removeTrailingWhitespace($i);
+        foreach ($tokens as $index => $token) {
+            if ($token->isCast()) {
+                $whitespaces = ['whitespaces' => " \t"];
+                $tokens->removeTrailingWhitespace($index, $whitespaces);
+
             }
         }
 

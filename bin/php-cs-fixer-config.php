@@ -20,7 +20,7 @@ foreach ($iterator as $file) {
 
     require $file->getPathname();
     $classname =
-        'Sabre\Test\CS\\' .
+        'Sabre\CS\\' .
         substr($file->getFilename(), 0, -4);
     $out->addCustomFixer(new $classname());
 
@@ -36,7 +36,6 @@ return
             'concat_with_spaces',
             'self_accessor',
             'short_array_syntax',
-            'spaces_cast',
             'unused_use',
 
             'elseif',
@@ -59,5 +58,6 @@ return
             'operators_spaces',
 
             // sabre defined
-            'public_visibility'
+            'public_visibility',
+            'no_spaces_cast',
         ]);
