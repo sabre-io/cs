@@ -1,0 +1,37 @@
+{
+    "name": "sabre/cs",
+    "description": "sabre/cs provides coding standards for all sabre packages.",
+    "keywords": [
+        "sabre",
+        "cs",
+        "coding standards"
+    ],
+    "homepage": "http://sabre.io",
+    "license": "BSD-3-Clause",
+    "require": {
+        "php": ">=5.4.7"
+    },
+    "authors": [
+        {
+            "name": "Evert Pot",
+            "email": "me@evertpot.com",
+            "homepage": "http://evertpot.com/",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "forum": "https://groups.google.com/group/sabredav-discuss",
+        "source": "https://github.com/fruux/sabre-cs"
+    },
+    "autoload": {
+        "psr-4" : {
+            "Sabre\\Test\\CS\\" : "lib/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit" : "*"
+    },
+    "config" : {
+        "bin-dir" : "bin/"
+    }
+}
