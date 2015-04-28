@@ -31,8 +31,8 @@ class NoSpaceAfterCast extends AbstractFixer {
 
         $tokens = Tokens::fromCode($content);
 
-        foreach ($tokens as $index => $token) {
-            if ($token->isCast()) {
+        foreach($tokens as $index => $token) {
+            if($token->isCast()) {
                 $whitespaces = ['whitespaces' => " \t"];
                 $tokens->removeTrailingWhitespace($index, $whitespaces);
 

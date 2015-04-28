@@ -40,28 +40,28 @@ class NoStructSpaces extends AbstractFixer {
     /**
      * {@inheritdoc}
      */
-    public function fix(\SplFileInfo $file, $content)
+    function fix(\SplFileInfo $file, $content)
     {
         $tokens = Tokens::fromCode($content);
 
         $structyTokens = $this->getStructyTokens();
 
-        foreach ($tokens as $index => $token) {
+        foreach($tokens as $index => $token) {
 
             // looking for start brace
-            if (!$token->equals('(')) {
+            if(!$token->equals('(')) {
                 continue;
             }
 
             // last non-whitespace token
             $lastTokenIndex = $tokens->getPrevNonWhitespace($index);
 
-            if (null === $lastTokenIndex) {
+            if(null === $lastTokenIndex) {
                 continue;
             }
 
             // check if it is a struct
-            if ($tokens[$lastTokenIndex]->isGivenKind($structyTokens)) {
+            if($tokens[$lastTokenIndex]->isGivenKind($structyTokens)) {
                 $this->fixStruct($tokens, $index);
             }
         }
@@ -72,7 +72,7 @@ class NoStructSpaces extends AbstractFixer {
     /**
      * {@inheritdoc}
      */
-    public function getDescription()
+    function getDescription()
     {
         return 'There MUST NOT be a space between a struct and the opening parenthesis.';
     }
@@ -86,7 +86,7 @@ class NoStructSpaces extends AbstractFixer {
     private function fixStruct(Tokens $tokens, $index)
     {
         // remove space before opening brace
-        if ($tokens[$index - 1]->isWhitespace()) {
+        if($tokens[$index - 1]->isWhitespace()) {
             $tokens[$index - 1]->clear();
         }
     }
@@ -102,8 +102,8 @@ class NoStructSpaces extends AbstractFixer {
     {
         static $tokens = null;
 
-        if (null === $tokens) {
-            $tokens = array(
+        if(null === $tokens) {
+            $tokens = [
                 T_IF,
                 T_ELSEIF,
                 T_FOR,
@@ -113,7 +113,7 @@ class NoStructSpaces extends AbstractFixer {
                 T_CATCH,
                 T_SWITCH,
                 T_DECLARE,
-            );
+            ];
         }
 
         return $tokens;
