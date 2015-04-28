@@ -22,7 +22,10 @@ foreach ($iterator as $file) {
     $classname =
         'Sabre\CS\\' .
         substr($file->getFilename(), 0, -4);
-    $out->addCustomFixer(new $classname());
+    $fixer = new $classname();
+    if ($fixer instanceof CS\AbstractFixer) {
+        $out->addCustomFixer(new $classname());
+    }
 
 }
 
@@ -61,7 +64,7 @@ return
             'elseif',
             'eof_ending',
             'function_call_space',
-            'function_declaration',
+            //'function_declaration',
             'indentation',
             'line_after_namespace',
             'linefeed',
@@ -79,4 +82,5 @@ return
             // sabre defined
             'sabre_visibility',
             'sabre_spaces_cast',
+            'sabre_function_declaration',
         ]);

@@ -19,18 +19,22 @@ use Symfony\CS\Tokenizer\Tokens;
  * copy most of the file (due to the private functions).
  *
  * @copyright Copyright (C) 2015 fruux GmbH. All rights reserved.
- * @author Ivan Enderlin
+ * @copyright (c) Fabien Potencier <fabien@symfony.com>
+ * @author Evert Pot
  * @author Fabien Potencier <fabien@symfony.com>
  * @license http://sabre.io/license/
  * @license MIT
  */
-class PublicVisibility extends AbstractFixer {
+class PublicVisibility extends AbstractFixer
+{
 
-    function getName() {
-        return 'sabre_visibility';
+    function getName()
+    {
+        return 'sabre_function_declaration';
     }
 
-    function getLevel() {
+    function getLevel()
+    {
         return FixerInterface::CONTRIB_LEVEL;
     }
 
@@ -163,7 +167,6 @@ class PublicVisibility extends AbstractFixer {
             }
         }
         return $result;
-
     }
 
     /**
@@ -214,6 +217,4 @@ class PublicVisibility extends AbstractFixer {
 
         return $attribs;
     }
-
-
 }
