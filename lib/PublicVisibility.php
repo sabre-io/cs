@@ -23,7 +23,6 @@ use Symfony\CS\Tokenizer\Tokens;
  * @author Fabien Potencier <fabien@symfony.com>
  * @license http://sabre.io/license/
  * @license MIT
- *
  */
 class PublicVisibility extends AbstractFixer {
 
