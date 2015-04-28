@@ -36,7 +36,6 @@ return
             'blankline_after_open_tag',
             'concat_with_spaces',
             'duplicate_semicolon',
-            'empty_return',
             'join_function',
             'namespace_no_leading_whitespace',
             'new_with_braces',
