@@ -30,6 +30,8 @@ return
     $out
         ->level(CS\FixerInterface::PSR1_LEVEL)
         ->fixers([
+
+            // symfony
             'align_double_arrow',
             'blankline_after_open_tag',
             'concat_with_spaces',
@@ -44,7 +46,6 @@ return
             'phpdoc_no_access',
             'phpdoc_no_package',
             'phpdoc_scalar',
-            'phpdoc_separation',
             'phpdoc_short_description',
             'phpdoc_trim',
             'phpdoc_type_to_var',
@@ -58,6 +59,7 @@ return
             'short_array_syntax',
             'unused_use',
 
+            // psr-2
             'elseif',
             'eof_ending',
             'function_call_space',
