@@ -57,6 +57,7 @@ return
             'single_blank_line_before_namespace',
             'single_quotes',
             'standardize_not_equal',
+            'ternary_spaces',
             'short_array_syntax',
             'unused_use',
 
@@ -64,6 +65,7 @@ return
             'elseif',
             'eof_ending',
             'function_call_space',
+
             //'function_declaration',
             'indentation',
             'line_after_namespace',
