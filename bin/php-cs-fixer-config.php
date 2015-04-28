@@ -68,6 +68,7 @@ return
             'lowercase_constants',
             'lowercase_keywords',
             'method_argument_space',
+            'multiple_use',
             'parenthesis',
             'php_closing_tag',
             'single_line_after_imports',
