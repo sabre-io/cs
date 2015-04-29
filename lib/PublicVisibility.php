@@ -46,16 +46,16 @@ class PublicVisibility extends AbstractFixer
         $tokens = Tokens::fromCode($content);
         $elements = $tokens->getClassyElements();
 
-        foreach(array_reverse($elements, true) as $index => $element) {
-            if('method' === $element['type']) {
+        foreach (array_reverse($elements, true) as $index => $element) {
+            if ('method' === $element['type']) {
                 $this->applyAttribs($tokens, $index, $this->grabAttribsBeforeMethodToken($tokens, $index));
 
                 // force whitespace between function keyword and function name to be single space char
                 $tokens[++$index]->setContent(' ');
-            } elseif('property' === $element['type']) {
+            } elseif ('property' === $element['type']) {
                 $prevIndex = $tokens->getPrevTokenOfKind($index, [';', ',', '{']);
 
-                if(!$prevIndex || !$tokens[$prevIndex]->equals(',')) {
+                if (!$prevIndex || !$tokens[$prevIndex]->equals(',')) {
                     $this->applyAttribs($tokens, $index, $this->grabAttribsBeforePropertyToken($tokens, $index));
                 }
             }
@@ -85,14 +85,14 @@ class PublicVisibility extends AbstractFixer
     {
         $toInsert = [];
 
-        foreach($attribs as $attrib) {
-            if(null !== $attrib && '' !== $attrib->getContent()) {
+        foreach ($attribs as $attrib) {
+            if (null !== $attrib && '' !== $attrib->getContent()) {
                 $toInsert[] = $attrib;
                 $toInsert[] = new Token([T_WHITESPACE, ' ']);
             }
         }
 
-        if(!empty($toInsert)) {
+        if (!empty($toInsert)) {
             $tokens->insertAt($index, $toInsert);
         }
     }
@@ -160,9 +160,9 @@ class PublicVisibility extends AbstractFixer
                 'static'     => null,
             ]
         );
-        if($result['visibility'] && $result['visibility']->getContent('public')) {
+        if ($result['visibility'] && $result['visibility']->getContent('public')) {
             // If visibility is public and static is set, we remove visibility.
-            if($result['static']) {
+            if ($result['static']) {
                 $result['visibility'] = null;
             }
         }
@@ -183,11 +183,11 @@ class PublicVisibility extends AbstractFixer
      */
     private function grabAttribsBeforeToken(Tokens $tokens, $index, array $tokenAttribsMap, array $attribs)
     {
-        while(true) {
+        while (true) {
             $token = $tokens[--$index];
 
-            if(!$token->isArray()) {
-                if($token->equalsAny(['{', '}', '(', ')'])) {
+            if (!$token->isArray()) {
+                if ($token->equalsAny(['{', '}', '(', ')'])) {
                     break;
                 }
 
@@ -195,9 +195,9 @@ class PublicVisibility extends AbstractFixer
             }
 
             // if token is attribute
-            if(array_key_exists($token->getId(), $tokenAttribsMap)) {
+            if (array_key_exists($token->getId(), $tokenAttribsMap)) {
                 // set token attribute if token map defines attribute name for token
-                if($tokenAttribsMap[$token->getId()]) {
+                if ($tokenAttribsMap[$token->getId()]) {
                     $attribs[$tokenAttribsMap[$token->getId()]] = clone $token;
                 }
 
@@ -208,7 +208,7 @@ class PublicVisibility extends AbstractFixer
                 continue;
             }
 
-            if($token->isGivenKind([T_WHITESPACE, T_COMMENT, T_DOC_COMMENT])) {
+            if ($token->isGivenKind([T_WHITESPACE, T_COMMENT, T_DOC_COMMENT])) {
                 continue;
             }
 

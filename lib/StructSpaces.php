@@ -48,22 +48,22 @@ class StructSpaces extends AbstractFixer {
 
         $structyTokens = $this->getStructyTokens();
 
-        foreach($tokens as $index => $token) {
+        foreach ($tokens as $index => $token) {
 
             // looking for start brace
-            if(!$token->equals('(')) {
+            if (!$token->equals('(')) {
                 continue;
             }
 
             // last non-whitespace token
             $lastTokenIndex = $tokens->getPrevNonWhitespace($index);
 
-            if(null === $lastTokenIndex) {
+            if (null === $lastTokenIndex) {
                 continue;
             }
 
             // check if it is a struct
-            if($tokens[$lastTokenIndex]->isGivenKind($structyTokens)) {
+            if ($tokens[$lastTokenIndex]->isGivenKind($structyTokens)) {
                 $this->fixStruct($tokens, $index);
             }
         }
@@ -88,7 +88,7 @@ class StructSpaces extends AbstractFixer {
     private function fixStruct(Tokens $tokens, $index)
     {
         // Ensure a single whitespace
-        if(!$tokens[$index - 1]->isWhitespace() || $tokens[$index - 1]->isWhitespace($this->singleLineWhitespaceOptions)) {
+        if (!$tokens[$index - 1]->isWhitespace() || $tokens[$index - 1]->isWhitespace($this->singleLineWhitespaceOptions)) {
             $tokens->ensureWhitespaceAtIndex($index - 1, 1, ' ');
         }
 
@@ -105,7 +105,7 @@ class StructSpaces extends AbstractFixer {
     {
         static $tokens = null;
 
-        if(null === $tokens) {
+        if (null === $tokens) {
             $tokens = [
                 T_IF,
                 T_ELSEIF,
