@@ -41,10 +41,10 @@ class FunctionDeclaration extends AbstractFixer
     function fix(\SplFileInfo $file, $content) {
         $tokens = Tokens::fromCode($content);
 
-        for($index = $tokens->count() - 1; $index >= 0; --$index) {
+        for ($index = $tokens->count() - 1; $index >= 0; --$index) {
             $token = $tokens[$index];
 
-            if(!$token->isGivenKind(T_FUNCTION)) {
+            if (!$token->isGivenKind(T_FUNCTION)) {
                 continue;
             }
 
@@ -53,11 +53,11 @@ class FunctionDeclaration extends AbstractFixer
             $startBraceIndex = $tokens->getNextTokenOfKind($endParenthesisIndex, [';', '{']);
             $startBraceToken = $tokens[$startBraceIndex];
 
-            if($startBraceToken->equals('{')) {
+            if ($startBraceToken->equals('{')) {
                 // fix single-line whitespace before {
                 // eg: `function foo(){}` => `function foo() {}`
                 // eg: `function foo()   {}` => `function foo() {}`
-                if(
+                if (
                     !$tokens[$startBraceIndex - 1]->isWhitespace() ||
                     $tokens[$startBraceIndex - 1]->isWhitespace($this->singleLineWhitespaceOptions)
                 ) {
@@ -68,7 +68,7 @@ class FunctionDeclaration extends AbstractFixer
             $afterParenthesisIndex = $tokens->getNextNonWhitespace($endParenthesisIndex);
             $afterParenthesisToken = $tokens[$afterParenthesisIndex];
 
-            if($afterParenthesisToken->isGivenKind(T_USE)) {
+            if ($afterParenthesisToken->isGivenKind(T_USE)) {
                 $useStartParenthesisIndex = $tokens->getNextTokenOfKind($afterParenthesisIndex, ['(']);
                 $useEndParenthesisIndex = $tokens->findBlockEnd(Tokens::BLOCK_TYPE_PARENTHESIS_BRACE, $useStartParenthesisIndex);
 
@@ -87,7 +87,7 @@ class FunctionDeclaration extends AbstractFixer
 
             // remove whitespace before (
             // eg: `function foo () {}` => `function foo() {}`
-            if($tokens[$startParenthesisIndex - 1]->isWhitespace()) {
+            if ($tokens[$startParenthesisIndex - 1]->isWhitespace()) {
                 $tokens[$startParenthesisIndex - 1]->clear();
             }
 
@@ -108,12 +108,12 @@ class FunctionDeclaration extends AbstractFixer
 
     private function fixParenthesisInnerEdge(Tokens $tokens, $start, $end) {
         // remove single-line whitespace before )
-        if($tokens[$end - 1]->isWhitespace($this->singleLineWhitespaceOptions)) {
+        if ($tokens[$end - 1]->isWhitespace($this->singleLineWhitespaceOptions)) {
             $tokens[$end - 1]->clear();
         }
 
         // remove single-line whitespace after (
-        if($tokens[$start + 1]->isWhitespace($this->singleLineWhitespaceOptions)) {
+        if ($tokens[$start + 1]->isWhitespace($this->singleLineWhitespaceOptions)) {
             $tokens[$start + 1]->clear();
         }
     }
