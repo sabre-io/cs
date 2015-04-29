@@ -12,12 +12,24 @@
         "php": ">=5.4.7",
         "fabpot/php-cs-fixer" : "~1.7"
     },
-    "authors": [
+    "authors" : [
         {
-            "name": "Evert Pot",
-            "email": "me@evertpot.com",
-            "homepage": "http://evertpot.com/",
-            "role": "Developer"
+            "name" : "Ivan Enderlin",
+            "email" : "ivan.enderlin@hoa-project.net",
+            "homepage" : "http://mnt.io/",
+            "role" : "Developer"
+        },
+        {
+            "name" : "Dominik Tobschall",
+            "email" : "dominik@fruux.com",
+            "homepage" : "http://tobschall.de/",
+            "role" : "Developer"
+        },
+        {
+            "name" : "Evert Pot",
+            "email" : "me@evertpot.com",
+            "homepage" : "http://evertpot.com/",
+            "role" : "Developer"
         }
     ],
     "support": {
