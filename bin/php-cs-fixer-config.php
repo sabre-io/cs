@@ -85,4 +85,5 @@ return
             'sabre_visibility',
             'sabre_spaces_cast',
             'sabre_function_declaration',
+            'sabre_struct_spaces',
         ]);
