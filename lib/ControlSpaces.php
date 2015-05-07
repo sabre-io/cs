@@ -7,14 +7,14 @@ use Symfony\CS\FixerInterface;
 use Symfony\CS\Tokenizer\Tokens;
 
 /**
- * Fixer for spaces between structs and parenthesises.
+ * Fixer for spaces between control structures and parenthesises.
  *
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
  *
  * This file was almost completely copied from
  * Symfony\CS\Fixer\PSR2\FunctionCallSpaceFixer, but we need similar fixing for
- * structs. Unfortunately this caused us to have to
+ * control structures. Unfortunately this caused us to have to
  * copy most of the file (due to the private functions).
  *
  * @copyright Copyright (C) 2015 fruux GmbH. All rights reserved.
@@ -25,13 +25,13 @@ use Symfony\CS\Tokenizer\Tokens;
  * @license http://sabre.io/license/
  * @license MIT
  */
-class StructSpaces extends AbstractFixer {
+class ControlSpaces extends AbstractFixer {
 
     private $singleLineWhitespaceOptions = ['whitespaces' => " \t"];
 
     function getName()
     {
-        return 'sabre_struct_spaces';
+        return 'sabre_control_spaces';
     }
 
     function getLevel()
@@ -46,7 +46,7 @@ class StructSpaces extends AbstractFixer {
     {
         $tokens = Tokens::fromCode($content);
 
-        $structyTokens = $this->getStructyTokens();
+        $controlStructureTokens = $this->getControlStructureTokens();
 
         foreach ($tokens as $index => $token) {
 
@@ -62,9 +62,9 @@ class StructSpaces extends AbstractFixer {
                 continue;
             }
 
-            // check if it is a struct
-            if ($tokens[$lastTokenIndex]->isGivenKind($structyTokens)) {
-                $this->fixStruct($tokens, $index);
+            // check if it is a control structure.
+            if ($tokens[$lastTokenIndex]->isGivenKind($controlStructureTokens)) {
+                $this->fixControlStructure($tokens, $index);
             }
         }
 
@@ -76,16 +76,16 @@ class StructSpaces extends AbstractFixer {
      */
     function getDescription()
     {
-        return 'There MUST be a space between a struct and the opening parenthesis.';
+        return 'There MUST be a space between a control structure and the opening parenthesis.';
     }
 
     /**
-     * Fixes whitespaces around braces of a struct().
+     * Fixes whitespaces around braces of a control structure.
      *
      * @param Tokens $tokens tokens to handle
      * @param int    $index  index of token
      */
-    private function fixStruct(Tokens $tokens, $index)
+    private function fixControlStructure(Tokens $tokens, $index)
     {
         // Ensure a single whitespace
         if (!$tokens[$index - 1]->isWhitespace() || $tokens[$index - 1]->isWhitespace($this->singleLineWhitespaceOptions)) {
@@ -95,13 +95,13 @@ class StructSpaces extends AbstractFixer {
     }
 
     /**
-     * Gets the name of tokens which can work as structs.
+     * Gets the name of control structure tokens.
      *
      * @staticvar string[] $tokens Token names.
      *
      * @return string[] Token names.
      */
-    private function getStructyTokens()
+    private function getControlStructureTokens()
     {
         static $tokens = null;
 
