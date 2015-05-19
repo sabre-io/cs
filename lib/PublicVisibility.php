@@ -160,7 +160,7 @@ class PublicVisibility extends AbstractFixer
                 'static'     => null,
             ]
         );
-        if ($result['visibility'] && $result['visibility']->getContent('public')) {
+        if ($result['visibility'] && 'public' === $result['visibility']->getContent()) {
             // If visibility is public and static is set, we remove visibility.
             if ($result['static']) {
                 $result['visibility'] = null;
