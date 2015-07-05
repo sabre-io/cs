@@ -1,6 +1,15 @@
 ChangeLog
 =========
 
+0.0.4 (2015-07-05)
+------------------
+
+* Relying on php-cs-fixer 1.9. Something changed related to php docsblocks
+  above the namespace declaration, causing php-cs-fixer to behave differently
+  between 1.7 and 1.9. Because we use a --prefer-lowest for testing, this
+  meant that it broke some our builds. Simply relying on 1.9 solves this.
+
+
 0.0.3 (2015-05-19)
 ------------------
 
