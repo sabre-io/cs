@@ -7,7 +7,6 @@
  * @author Evert Pot (http://evertpot.com/)
  * @license http://sabre.io/license/
  */
-
 use Symfony\CS;
 
 $out      = CS\Config\Config::create();
@@ -50,6 +49,7 @@ return
             'phpdoc_scalar',
             'phpdoc_trim',
             'phpdoc_type_to_var',
+            'phpdoc_types',
             'phpdoc_var_without_name',
             'remove_leading_slash_use',
             'remove_lines_between_uses',
@@ -60,6 +60,7 @@ return
             'ternary_spaces',
             'short_array_syntax',
             'unused_use',
+            'whitespacey_lines',
 
             // psr-2
             'elseif',
@@ -78,8 +79,10 @@ return
             'php_closing_tag',
             'single_line_after_imports',
             'trailing_spaces',
-
             'operators_spaces',
+
+            // contrib
+            'ordered_use_fixer',
 
             // sabre defined
             'sabre_visibility',
