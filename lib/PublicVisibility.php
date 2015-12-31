@@ -18,7 +18,7 @@ use Symfony\CS\Tokenizer\Tokens;
  * must not be specified for methods. Unfortunately this caused us to have to
  * copy most of the file (due to the private functions).
  *
- * @copyright Copyright (C) 2015 fruux GmbH. All rights reserved.
+ * @copyright Copyright (C) fruux GmbH. All rights reserved.
  * @copyright (c) Fabien Potencier <fabien@symfony.com>
  * @author Evert Pot
  * @author Fabien Potencier <fabien@symfony.com>

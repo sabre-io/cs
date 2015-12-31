@@ -16,7 +16,7 @@ use Symfony\CS\FixerInterface;
  * This source file is subject to the MIT license that is bundled
  * with this source code in the file LICENSE.
  *
- * @copyright Copyright (C) 2015 fruux GmbH. All rights reserved.
+ * @copyright Copyright (C) fruux GmbH. All rights reserved.
  * @copyright (c) Fabien Potencier <fabien@symfony.com>
  * @author Evert Pot
  * @author Dariusz Rumiński <dariusz.ruminski@gmail.com>

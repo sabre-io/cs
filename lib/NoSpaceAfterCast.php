@@ -9,7 +9,7 @@ use Symfony\CS\Tokenizer\Tokens;
 /**
  * No spaces after a cast.
  *
- * @copyright Copyright (C) 2015 fruux GmbH. All rights reserved.
+ * @copyright Copyright (C) fruux GmbH. All rights reserved.
  * @author Ivan Enderlin
  * @license http://sabre.io/license/
  */

@@ -3,7 +3,7 @@
 /**
  * This is the sabre/cs PHP-CS-Fixer config.
  *
- * @copyright Copyright (C) 2015 fruux GmbH. All rights reserved.
+ * @copyright Copyright (C) fruux GmbH (https://fruux.com/)
  * @author Evert Pot (http://evertpot.com/)
  * @license http://sabre.io/license/
  */

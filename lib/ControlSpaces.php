@@ -17,7 +17,7 @@ use Symfony\CS\Tokenizer\Tokens;
  * control structures. Unfortunately this caused us to have to
  * copy most of the file (due to the private functions).
  *
- * @copyright Copyright (C) 2015 fruux GmbH. All rights reserved.
+ * @copyright Copyright (C) fruux GmbH. All rights reserved.
  * @copyright (c) Fabien Potencier <fabien@symfony.com>
  * @author Dominik Tobschall
  * @author Varga Bence <vbence@czentral.org>
