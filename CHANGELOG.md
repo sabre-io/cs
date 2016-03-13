@@ -1,6 +1,19 @@
 ChangeLog
 =========
 
+0.0.6 (2016-03-12)
+------------------
+
+* Requiring php-cs-fixer 1.11.2
+
+
+0.0.5 (2016-11-10)
+------------------
+
+* Requiring php-cs-fixer 1.10
+* Fixed some issues around whitespace at the end of lines.
+
+
 0.0.4 (2015-07-05)
 ------------------
 
