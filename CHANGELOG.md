@@ -1,6 +1,12 @@
 ChangeLog
 =========
 
+0.0.7 (2016-07-10)
+------------------
+
+* Using `friendsofphp/php-cs-fixer` instead of `fabpot/php-cs-fixer`
+
+
 0.0.6 (2016-03-12)
 ------------------
 
