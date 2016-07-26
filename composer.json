@@ -10,7 +10,7 @@
     "license": "BSD-3-Clause",
     "require": {
         "php": ">=5.4.7",
-        "friendsofphp/php-cs-fixer" : "~1.11.2"
+        "friendsofphp/php-cs-fixer" : "~1.11.6"
     },
     "authors" : [
         {
