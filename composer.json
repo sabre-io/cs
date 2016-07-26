@@ -42,7 +42,6 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit" : "*"
     },
     "config" : {
         "bin-dir" : "bin/"
