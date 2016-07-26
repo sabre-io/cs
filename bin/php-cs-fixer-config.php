@@ -51,14 +51,16 @@ return
             'phpdoc_type_to_var',
             'phpdoc_types',
             'phpdoc_var_without_name',
+            'print_to_echo',
             'remove_leading_slash_use',
             'remove_lines_between_uses',
             'self_accessor',
             'single_blank_line_before_namespace',
             'single_quotes',
+            'spaces_before_semicolon',
             'standardize_not_equal',
             'ternary_spaces',
-            'short_array_syntax',
+            'trim_array_spaces',
             'unused_use',
             'whitespacey_lines',
 
@@ -66,7 +68,6 @@ return
             'elseif',
             'eof_ending',
             'function_call_space',
-
             //'function_declaration',
             'indentation',
             'line_after_namespace',
@@ -82,7 +83,10 @@ return
             'operators_spaces',
 
             // contrib
-            'ordered_use_fixer',
+            'ordered_use',
+            'concat_with_spaces',
+            'phpdoc_order',
+            'short_array_syntax',
 
             // sabre defined
             'sabre_visibility',
