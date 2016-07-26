@@ -3,8 +3,8 @@
 namespace Sabre\Cs;
 
 use Symfony\CS\AbstractFixer;
-use Symfony\CS\Tokenizer\Tokens;
 use Symfony\CS\FixerInterface;
+use Symfony\CS\Tokenizer\Tokens;
 
 /**
  * Fixer for function declarations.

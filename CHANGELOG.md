@@ -1,6 +1,14 @@
 ChangeLog
 =========
 
+0.0.8 (2016-07-10)
+------------------
+
+* Added `ordered_use`, `concat_with_spaces`, `phpdoc_order`, `print_to_echo`
+ `spaces_before_semicolon` and `trim_array_spaces` fixers.
+* php-cs-fixer 1.11.6
+
+
 0.0.7 (2016-07-10)
 ------------------
 
