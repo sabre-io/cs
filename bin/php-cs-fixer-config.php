@@ -35,7 +35,7 @@ return
 
             // symfony
             'align_double_arrow',
-            'blankline_after_open_tag',
+            // 'blankline_after_open_tag', // This prevents us from having strict_types on the same line
             'concat_with_spaces',
             'duplicate_semicolon',
             'join_function',
