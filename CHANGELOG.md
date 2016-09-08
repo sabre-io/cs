@@ -1,7 +1,7 @@
 ChangeLog
 =========
 
-0.0.9 (2016-09-08)
+1.0.0 (2016-09-08)
 ------------------
 
 * Removed a fixer, because for PHP7 we want `declare (strict_types=1)` to
