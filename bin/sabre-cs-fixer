@@ -34,7 +34,7 @@ if (file_exists($a = __DIR__.'/../../../autoload.php')) {
     require_once __DIR__.'/../vendor/autoload.php';
 }
 
-use Symfony\CS\Console\Application;
+use PhpCsFixer\Console\Application;
 use Symfony\Component\Console\Input\ArgvInput;
 
 // Automatically injecting the --config-file argument, but only if the "fix"
